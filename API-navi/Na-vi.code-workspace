@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "Auth_API"
+		},
+		{
+			"path": "Logging_API"
+		},
+		{
+			"path": "Map_API"
+		},
+		{
+			"path": "../WEB-navi"
+		}
+	],
+	"settings": {}
+}

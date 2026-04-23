@@ -1,0 +1,31 @@
+name: Build Android APK
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Setup Expo
+        uses: expo/expo-github-action@v8
+        with:
+          expo-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build APK
+        # This assumes you have a build profile named 'preview' or 'production' in eas.json
+        # that is configured to output an APK instead of an AAB.
+        run: eas build --platform android --profile preview --non-interactive

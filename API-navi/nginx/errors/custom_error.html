@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error {{STATUS_CODE}}</title>
+
+<style>
+    /* Full-page vertical + horizontal centering */
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        background: #ffffff;
+        font-family: "Inter", Arial, sans-serif;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* This container stacks GIF → code → message vertically */
+    .container {
+        display: flex;
+        flex-direction: column; /* ensures GIF stays above text */
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+        padding: 20px;
+        max-width: 600px;
+    }
+
+    .gif {
+        width: 300px;      /* more reasonable default */
+        margin-bottom: 25px;
+    }
+
+    .code {
+        font-size: 80px;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 10px;
+    }
+
+    .message {
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 30px;
+    }
+
+    /* Mobile-friendly scaling */
+    @media (max-width: 600px) {
+        .gif { width: 160px; }
+        .code { font-size: 60px; }
+    }
+</style>
+
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://media.tenor.com/8f9WJQ7E7JUAAAAi/niko-niko-oneshot.gif"
+             class="gif"
+             alt="Error GIF">
+    <div class="code">{{STATUS_CODE}}</div>
+    <div class="message">{{ERROR_MESSAGE}}</div>
+</div>
+
+</body>
+</html>
